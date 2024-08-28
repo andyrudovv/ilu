@@ -1,3 +1,4 @@
+use std::path::PathBuf;
 
 mod types;
 
@@ -22,7 +23,7 @@ fn main() -> anyhow::Result<()> {
     types::check_licence(type_of_licence.clone())?;
     let licence_content = types::get_content(type_of_licence);
     
-    std::fs::write(path + "/LICENCE", licence_content).unwrap();
+    std::fs::write(PathBuf::from(path + "/LICENCE"), licence_content).unwrap();
 
     Ok(())
 }
